@@ -1,29 +1,35 @@
-# README
+# FURIMA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
 
-Things you may want to cover:
 
-* Ruby version
+## 本番環境
 
-* System dependencies
+http://18.180.99.238/
 
-* Configuration
+## 制作背景
 
-* Database creation
 
-* Database initialization
+## DEMO
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## 工夫したポイント
 
-* ...
 
-## usersテーブル
+
+## 使用技術
+
+HTML,SCSS,jQuery,Ruby,Rails,MySQL,AWS
+
+## 課題や今後実装したい機能
+
+
+
+
+# DB設計
+
+### usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 | nickname           | string | null: false |
@@ -37,13 +43,13 @@ Things you may want to cover:
 | first_name_kana    | string | null: false |
 | birth_day          | date   | null: false |
 
-### Association
+#### Association
 - has_many   :products       dependent: :destroy
 - belongs_to :destination    dependent: :destroy
 - belongs_to :card           dependent: :destroy
 
 
-## destinationテーブル
+### destinationテーブル
 |Column|Type|Options|
 |------|----|-------|
 | user_id          | integer | null: false, foreign_key: true|
@@ -58,32 +64,32 @@ Things you may want to cover:
 | building_name    | string  ||
 | phone_number     | string  ||
 
-### Association
+#### Association
 - belongs_to :user
 
 
-## cardテーブル
+### cardテーブル
 |Column|Type|Options|
 |------|----|-------|
 | user_id     | integer | null: false, foreign_key: true |
 | customer_id | string  | null: false |
 | card_id     | string  | null: false |
 
-### Association
+#### Association
 - belongs_to :user
 
 
-## categoryテーブル
+### categoryテーブル
 |Column|Type|Options|
 |------|----|-------|
 | name     | string | null: false |
 | ancestry | string ||
 
-### Association
+#### Association
 - has_many :products
 
 
-## productテーブル
+### productテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -101,7 +107,7 @@ Things you may want to cover:
 | shipping_id   | integer | null: false, foreign_key: true |
 | user_id       | integer | null: false, foreign_key: true |
 
-### Association
+#### Association
 - belongs_to :user       dependent: :destroy
 - belongs_to :category   dependent: :destroy
 - belongs_to :brand      dependent: :destroy
@@ -110,20 +116,20 @@ Things you may want to cover:
 - belongs_to_active_hash :prefecture
 
 
-## imageテーブル
+### imageテーブル
 |Column|Type|Options|
 |------|----|-------|
 | image      | string  | null: false |
 | product_id | integer | null: false, foreign_key: true |
 
-### Association
+#### Association
 - belongs_to :product
 
 
-## brandテーブル
+### brandテーブル
 |Column|Type|Options|
 |------|----|-------|
 | name | string | index: true |
 
-### Association
+#### Association
 - has_many :products
